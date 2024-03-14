@@ -1,4 +1,4 @@
-Постройте график
+1. Постройте график
 Назовите график
 Сделайте именование оси x и оси y
 Сделайте выводы
@@ -7,6 +7,14 @@ import pandas as pd
 
 df = pd.read_csv('kc_house_data.csv', sep=',')
 df.head()
+id	date	price	bedrooms	bathrooms	sqft_living	sqft_lot	floors	waterfront	view	...	grade	sqft_above	sqft_basement	yr_built	yr_renovated	zipcode	lat	long	sqft_living15	sqft_lot15
+0	7129300520	20141013T000000	221900.0	3	1.00	1180	5650	1.0	0	0	...	7	1180	0	1955	0	98178	47.5112	-122.257	1340	5650
+1	6414100192	20141209T000000	538000.0	3	2.25	2570	7242	2.0	0	0	...	7	2170	400	1951	1991	98125	47.7210	-122.319	1690	7639
+2	5631500400	20150225T000000	180000.0	2	1.00	770	10000	1.0	0	0	...	6	770	0	1933	0	98028	47.7379	-122.233	2720	8062
+3	2487200875	20141209T000000	604000.0	4	3.00	1960	5000	1.0	0	0	...	7	1050	910	1965	0	98136	47.5208	-122.393	1360	5000
+4	1954400510	20150218T000000	510000.0	3	2.00	1680	8080	1.0	0	0	...	8	1680	0	1987	0	98074	47.6168	-122.045	1800	7503
+5 rows × 21 columns
+
 
 import sys
 import matplotlib
@@ -23,10 +31,14 @@ plt.ylabel('Количество');
 
 Колличество домов прямопропорционально их цене
 
-1.1. Скачать следующие данные: kc-house-data и laptop_price
-1.2. Изучите стоимости недвижимости
-1.3. Изучите распределение квадратуры жилой
-1.4. Изучите распределение года постройки
+[1.docx](https://github.com/Repin23/-Python-/files/14602534/1.docx)
+
+
+2. Скачать следующие данные: kc-house-data и laptop_price
+https://gbcdn.mrgcdn.ru/uploads/asset/4266730/attachment/08ec55854637add5247d22396d0f7456.csv
+Изучите стоимости недвижимости
+Изучите распределение квадратуры жилой
+Изучите распределение года постройки
 
 plt.hist(df['sqft_living'])
 plt.title('Распределение жилой площади')
@@ -34,13 +46,16 @@ plt.xlabel('распределение жилой квадратуры')
 plt.ylabel('Количество')
 
 Text(0, 0.5, 'Количество')
+[2.docx](https://github.com/Repin23/-Python-/files/14602579/2.docx)
 
 
 plt.hist(df['yr_built'])
 plt.title('Распределение года постройки')
 plt.xlabel('год постройки')
 plt.ylabel('Количество');
+[3.docx](https://github.com/Repin23/-Python-/files/14602603/3.docx)
 
+3. Изучите распределение домов от наличия вида на набережную
 vid = df['waterfront'].value_counts()
 vid.head()
 0    21450
@@ -51,11 +66,13 @@ plt.title('Распределение домов от наличия вида н
 plt.xlabel('вид на набережную')
 plt.ylabel('Количество')
 Text(0, 0.5, 'Количество')
-
+[4.docx](https://github.com/Repin23/-Python-/files/14602621/4.docx)
 
 Вывод:
 
 Количество домов с видом на набережную в десятки тысяч раз меньше, чем без вида на неё
+[5.docx](https://github.com/Repin23/-Python-/files/14602686/5.docx)
+
 
 Изучите распределение этажей домов
 df['floors'].value_counts()
@@ -71,6 +88,8 @@ plt.title('Изучение распределения этажей домов')
 plt.xlabel('Этажи')
 plt.ylabel('Количество домов')
 Text(0, 0.5, 'Количество домов')
+[6.docx](https://github.com/Repin23/-Python-/files/14602695/6.docx)
+
 
 Изучите распределение состояния домов
 
@@ -85,6 +104,9 @@ plt.hist(df['view'])
 plt.title('Изучение распределения состояния домов')
 plt.xlabel('Оценка')
 plt.ylabel('Количество домов')
+[7.docx](https://github.com/Repin23/-Python-/files/14602707/7.docx)
+
+
 
 Исследуйте, какие характеристики недвижимости влияют на стоимость недвижимости, с применением не менее 5 диаграмм из урока.
 
@@ -125,5 +147,6 @@ sns.heatmap(corr_matrix, annot=True, linewidths=.5, cmap='coolwarm');
 
 
 ![2](https://github.com/Repin23/-Python-/assets/139049242/58c983d1-5169-4540-aadd-1b1e284c8b2f)
+
 
 
